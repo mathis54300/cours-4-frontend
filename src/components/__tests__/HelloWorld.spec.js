@@ -10,6 +10,9 @@ describe('HelloWorld', () => {
   })
 
   it('contains app name', () => {
+    // mock the env variable
+    import.meta.env.VITE_APP_NAME = 'Vitest Test App'
+
     const wrapper = mount(HelloWorld, { props: { msg: 'Hello Vitest' } })
     expect(wrapper.text()).toContain(import.meta.env.VITE_APP_NAME)
   })
