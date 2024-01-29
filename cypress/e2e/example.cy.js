@@ -6,3 +6,11 @@ describe('My First Test', () => {
     cy.contains('h1', 'You did it!')
   })
 })
+
+describe('Navigation Test', () => {
+  it('navigates to /about when clicking on "about"', () => {
+    cy.visit('/')
+    cy.get('a[href="/about"]').click()
+    cy.url().should('include', '/about')
+  })
+})
