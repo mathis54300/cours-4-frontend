@@ -23,3 +23,19 @@ jobs:
 
       - name: Run linter
         run: npm run lint
+
+      - name: Run formatter
+        run: npm run format
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply lint fixes
+          commit_options: '--no-verify --allow-empty'
+          file_pattern: src/.
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Build
+        run: npm run build
